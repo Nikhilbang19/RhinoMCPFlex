@@ -25,6 +25,7 @@ except ImportError:
 from .rhino_tools import RhinoTools, get_rhino_connection
 from .grasshopper_tools import GrasshopperTools, get_grasshopper_connection
 # from .utility_tools import UtilityTools  # Removed utility tools
+from .design_brief_interpreter import register_design_brief_tool
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, 
@@ -90,6 +91,7 @@ app = FastMCP(
 rhino_tools = RhinoTools(app)
 grasshopper_tools = GrasshopperTools(app)
 # utility_tools = UtilityTools(app)  # Removed utility tools
+register_design_brief_tool(app)  # Register design brief interpreter
 
 @app.prompt()
 def rhino_creation_strategy() -> str:
